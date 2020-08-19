@@ -1,0 +1,31 @@
+@layout('layouts.main')
+
+@section('css')
+{{ style('/css/rnmuser') }}
+@endsection
+
+@section('title')
+rnmdir - user
+@endsection
+@section('content')
+<div>
+    <div class="leftnav1 red">         
+        <label for="repository">Repository</label>
+        <a href="/user" id="userli" onclick="">User</a>
+        <a href="/">Branch</a>                
+        <a href="/">Employee</a>                
+        <a href="/">Device</a>                
+        <a href="/">Payment Type</a>                
+        <a href="/">Discount Type</a>                
+        <a href="/">Unit of Measure</a>                
+        <a href="/">Item</a>            
+    </div>    
+    <div style="background:blue;">  
+        <input type="button" class="userbtn" value="+ Add user">
+        <h1 class="h1">All Users</h1>
+        @each(rnmuser in rnmusers)
+        <p>{{ rnmuser.lastname + ', ' +  rnmuser.firstname + ' ' +  rnmuser.middlename}}</p>
+        @endeach
+    </div>    
+</div>
+@endsection
